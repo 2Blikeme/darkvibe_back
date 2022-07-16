@@ -22,4 +22,13 @@ public class FilmApiController {
         }
     }
 
+    @GetMapping("/films/top/type={top}&page={page}")
+    public String getFilmTop(@PathVariable String top, @PathVariable int page) {
+        try {
+            return filmService.getFilmListTop(top, page);
+        } catch (IOException | InterruptedException e) {
+            return null;
+        }
+    }
+
 }
